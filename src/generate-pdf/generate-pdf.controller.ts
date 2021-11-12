@@ -8,8 +8,8 @@ global.browser = puppeteer.launch();
 export class GeneratePdfController {
     constructor(private readonly genPDFService: generatePDFService) {}
     @Post()
-   // @Header('Content-type', 'application/pdf')
-   // @Header('Content-Disposition', 'attachment; filename=report.pdf')
+    @Header('Content-type', 'application/pdf')
+    @Header('Content-Disposition', 'attachment; filename=report.pdf')
     getPDF(@Body() generatePDF : postParam) {
         return this.genPDFService.getPDF("",generatePDF);
     }
